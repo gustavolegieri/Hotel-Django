@@ -65,13 +65,13 @@ def cadastrar_quarto(request):
             messages.error(request, f"O quarto número {numero} já está cadastrado.")
             return render(request, 'cadastrar_quarto.html')
 
-        # Se não existir, cria o quarto
+
         Quarto.objects.create(numero=numero, tipo=tipo, capacidade=capacidade)
         messages.success(request, "Quarto cadastrado com sucesso!")
         return redirect('listar_quartos')
 
     return render(request, 'cadastrar_quarto.html')
-# Gerente: listar todos quartos
+
 
 @login_required
 @user_passes_test(is_gerente)
